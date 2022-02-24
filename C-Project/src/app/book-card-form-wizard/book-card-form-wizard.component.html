@@ -1,24 +1,63 @@
-<form class="book-card-form" style="border: 1px solid;margin: 0 0 10px 0;padding: 20px;">
+<form (ngSubmit)="onSubmit()" class="book-card-form" style="border: 1px solid;margin: 0 0 10px 0;padding: 20px;">
     <h3>Create/Edit this book with Wizard</h3>
     <div class="book-card-form--main-info">
+
         <h4>Please write the Title and Author:</h4>
+
         <p  class="book-card-form--main-info-heading">Title of the book:</p>
-        <input type="text">
+        <input 
+            type="text" 
+            id="bookTitle" 
+            class="form-control" 
+            ngModel 
+            name="bookTitle">
+
         <p  class="book-card--main-info-author">Author of the book:</p>
-        <input type="text">
+        <input 
+            type="text"  
+            id="bookAuthor" 
+            class="form-control" 
+            ngModel 
+            name="bookAuthor">
+
     </div>
     <div class="book-card-form--secondary-info">
+
         <h4>Please write the Synposis, Published date and Genre:</h4>
+
         <p  class="book-card-form--secondary-info-synopsis">Synopsis:</p>
-        <textarea type="text" rows="2" cols="10"></textarea>
+        <textarea 
+            type="text" 
+            rows="2" 
+            cols="10"  
+            id="bookSynopsis" 
+            class="form-control" 
+            ngModel 
+            name="bookSynopsis">
+        </textarea>
+
         <p  class="book-card-form--secondary-info-published-date">Published date:</p>
-        <input type="text">
+        <input 
+            type="date"  
+            id="bookPublishedDate" 
+            class="form-control" 
+            ngModel 
+            name="bookPublishedDate">
+
         <p  class="book-card-form--secondary-info-genre">Genre</p>
-        <input type="text">
+        <select 
+            id="bookGenre" 
+            class="form-control" 
+            ngModel name="bookGenre">
+                <option value="Action">Action</option>
+                <option value="Romance">Romance</option>
+                <option value="Fiction">Fiction</option>
+        </select>
+
     </div>
     <div class="book-card-form-button-section">
         <h4>The book is ready!</h4>
-        <button>All done!</button>
-        <button>Cancel</button>
+        <button class="btn btn-submit" type="submit">All done!</button>
+        <button class="btn btn-cancel" type="">Cancel</button>
     </div>
 </form>
