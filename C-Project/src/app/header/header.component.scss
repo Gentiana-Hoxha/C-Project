@@ -1,0 +1,15 @@
+.header{
+    height: fit-content;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 2px solid;
+    &-logo, &-user{
+        padding: 10px;
+    }
+    &-logo{
+        float: left;
+    }
+    &-user{
+        float: right;
+    }
+}
