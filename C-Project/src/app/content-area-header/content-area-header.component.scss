@@ -1,0 +1,12 @@
+.header{
+    height: fit-content;
+    display: inline-block;
+    border-bottom: 2px solid;
+    width: -webkit-fill-available;
+    &-title{
+        float: left;
+    }
+    app-search-bar{
+        float:right;
+    }
+}
