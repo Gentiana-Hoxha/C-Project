@@ -7,6 +7,9 @@ import { NavigationComponent } from './navigation-panel/navigation.component';
 import { ContentAreaComponent } from './content-area/content-area.component';
 import { ContentAreaHeaderComponent } from './content-area-header/content-area-header.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { BookCardComponent } from './book-card/book-card.component';
+import { BookCardFormComponent } from './book-card-form/book-card-form.component';
+import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-form-wizard.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     NavigationComponent,
     ContentAreaComponent,
     ContentAreaHeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    BookCardComponent,
+    BookCardFormComponent,
+    BookCardFormWizardComponent
   ],
   imports: [
     BrowserModule
