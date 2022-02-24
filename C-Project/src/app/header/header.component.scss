@@ -1,0 +1,18 @@
+.header{
+    height: fit-content;
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    border-bottom: 2px solid;
+    background-color: blueviolet;
+    z-index: 1;
+    &-logo, &-user{
+        padding: 10px;
+    }
+    &-logo{
+        float: left;
+    }
+    &-user{
+        float: right;
+    }
+}
