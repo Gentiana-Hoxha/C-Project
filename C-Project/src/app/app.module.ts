@@ -10,6 +10,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookCardFormComponent } from './book-card-form/book-card-form.component';
 import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-form-wizard.component';
+import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -24,9 +27,10 @@ import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-f
     BookCardFormWizardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
