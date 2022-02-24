@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-book-card-form-wizard',
@@ -8,13 +9,16 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./book-card-form-wizard.component.scss']
 })
 export class BookCardFormWizardComponent implements OnInit {
+  @ViewChild('f') bookForm!: NgForm;
 
   constructor() { }
-
   ngOnInit(): void {
   }
+  // onSubmit(form:NgForm){
+  //   alert("SUBMITED THE FORM!");
+  //   console.log(form)
+  // }
   onSubmit(){
-    alert("SUBMITED THE FORM!")
+    console.log(this.bookForm)
   }
-
 }
