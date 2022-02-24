@@ -1,0 +1,100 @@
+.book-card{
+    background: #e2dcd4;
+    border: 1px solid;
+    margin: 0 0 10px 0;
+    position: relative;
+    width: 30%;
+    float: left;
+    margin-right: 2vw;
+    margin-bottom: 2vw;
+    // &:nth-child(3n){
+    //     margin-right: 0;
+    // }
+    &-color{
+        height: 125px;
+        background-color: yellowgreen;
+        border: 1px solid;
+        position: relative;
+        span{
+            padding: 6px 15px;
+            background: rgb(26, 119, 119);
+            color: white;
+            border-radius: 40px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: absolute;
+            right: 12px;
+            top: 10px;
+            border: 1px solid black;
+        }
+    }
+    &--main-info{
+        position: absolute;
+        top: 102px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: antiquewhite;
+        padding: 10px 40px 0px;
+        border: 1px solid;
+        border-bottom: 0px;
+        width: fit-content;
+        max-width: 216px;
+        &-heading, &-author{
+            margin: 0px;
+        }
+    }
+    &--secondary-info{
+        padding: 32px 20px 20px;
+        &-synopsis,&-published-date{
+            margin: 0;
+        }
+        &-published-date{
+            padding-top: 20px;
+        }
+        &-synopsis{
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+    &-button-section{
+        background: violet;
+        width: 30px;
+        height: 30px;
+        border: 1px solid;
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        cursor: pointer;
+        
+        &--popup{
+            
+            padding: 10px;
+            background: rgb(235, 232, 65);
+            border: 1px solid black;
+            width: fit-content;
+            position: absolute;
+            left: 16px;
+            bottom: -17px;
+            z-index: 2;
+            display: none;
+            button{
+                cursor: pointer;
+            }
+            button:first-child{
+                background-color: turquoise;
+            }
+            button:nth-child(2){
+                background-color: tomato;
+            }
+        }
+        &:hover{
+            .book-card-button-section--popup{
+                display: block;
+            }
+        }
+        
+    }
+}
