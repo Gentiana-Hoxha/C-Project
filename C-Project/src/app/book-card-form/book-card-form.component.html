@@ -1,20 +1,77 @@
-<form class="book-card-form" style="border: 1px solid;margin: 0 0 10px 0;padding: 20px;">
-    <h3>Edit this book</h3>
-    <div class="book-card-form--main-info">
+<form [formGroup]="bookFormEditor" (ngSubmit)="onSubmit()" class="book-card-form" style="border: 1px solid;margin: 0 0 10px 0;padding: 20px;">
+    <h3>Create/Edit this book with Editor</h3>
+    <div formGroupName="mainData" class="book-card-form--main-info">
         <p  class="book-card-form--main-info-heading">Title of the book:</p>
-        <input type="text">
+        <input 
+            formControlName="bookTitle"
+            type="text" 
+            id="bookTitle" 
+            class="form-control"
+            name="bookTitle">
+            
         <p  class="book-card--main-info-author">Author of the book:</p>
-        <input type="text">
+        <input 
+            formControlName="bookAuthor"
+            type="text"  
+            id="bookAuthor" 
+            class="form-control" 
+            name="bookAuthor">
     </div>
-    <div class="book-card-form--secondary-info">
+    <div formGroupName="secondaryData" class="book-card-form--secondary-info">
+
         <p  class="book-card-form--secondary-info-synopsis">Synopsis:</p>
-        <textarea type="text" rows="2" cols="10"></textarea>
+        <textarea 
+            formControlName="bookSynopsis"
+            type="text" 
+            rows="4" 
+            id="bookSynopsis" 
+            class="form-control" 
+            name="bookSynopsis">
+        </textarea>
+
         <p  class="book-card-form--secondary-info-published-date">Published date:</p>
-        <input type="text">
+        <input 
+            formControlName="bookPublishedDate"
+            type="date"  
+            id="bookPublishedDate" 
+            class="form-control" 
+            name="bookPublishedDate">
+
+        <p  class="book-card-form--secondary-info-genre">Genre</p>
+        <div *ngFor="let genre of bookGenres">
+            <label>
+                <input 
+                class="form-control"
+                type="radio"
+                name="bookGenre"
+                formControlName="bookGenre"
+                [value]="genre">{{genre}}
+            </label>
+    </div>
+        <select 
+            formControlName="bookStatus"
+            id="bookStatus"
+            name="bookStatus">
+                <option 
+                value="Finished"
+                [selected]="bookFormEditor.get('mainData')?.valid&&bookFormEditor.get('secondaryData.bookSynopsis')?.value&&bookFormEditor.get('secondaryData.bookPublishedDate')?.value&&bookFormEditor.get('secondaryData.bookGenre')?.value"
+                >Finished</option>
+
+                <option value="Progress"
+                [selected]="!(bookFormEditor.get('mainData')?.valid&&bookFormEditor.get('secondaryData.bookSynopsis')?.value&&bookFormEditor.get('secondaryData.bookPublishedDate')?.value&&bookFormEditor.get('secondaryData.bookGenre')?.value)"
+                >Progress</option>
+        </select>
     </div>
     <div class="book-card-form-button-section">
-        <button>Save</button>
-        <button>Cancel</button>
-        <button>Delete</button>
+        <h4>The book is ready!</h4>
+        
+        <button 
+            class="btn btn-submit" 
+            [disabled]="!(bookFormEditor.get('mainData')?.valid &&bookFormEditor.get('secondaryData')?.valid)" 
+            type="submit">
+            Update
+        </button>
+
+        <button class="btn btn-delete" type="">Delete</button>
     </div>
 </form>

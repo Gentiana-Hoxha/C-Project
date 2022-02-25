@@ -28,7 +28,14 @@ export class BookCardFormWizardComponent implements OnInit {
         'bookSynopsis': new FormControl('')
       })
     });
+
+    this.bookFormWizard.valueChanges.subscribe(value =>{
+      console.log(value)
+    })
   }
+
+  
+
 
   onSubmit(){
     console.log(this.bookFormWizard)
