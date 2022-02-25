@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.interface';
 
@@ -12,12 +12,10 @@ export class LoginFormComponent implements OnInit {
   validationMessage!:boolean;
   token!:any;
   user:User = {email: '', password: ''};
-  userLogged:any= localStorage.getItem("userLogged");
-  isErrorShown: boolean = false;
 
-  display(){
-    return this.isErrorShown;
-  }
+  userLogged:any= localStorage.getItem("userLogged");
+
+  
   //https://stackoverflow.com/questions/53567993/angular-get-request-from-user-input/53568698
 
   getEmail(event: any){
@@ -32,14 +30,14 @@ export class LoginFormComponent implements OnInit {
     this.http.post<any>('https://reqres.in/api/login',this.user).subscribe({
       next: data => {
           this.token = data.token;
-          this.validationMessage = true;
+          
           this.saveUser();
+          
       },
       error: error => { 
           this.errorMessage = error.message;
           console.error('Could\'t login with that email and password', error);
           this.validationMessage = false;
-          this.isErrorShown = true;
       }
     })
   }
@@ -51,6 +49,9 @@ export class LoginFormComponent implements OnInit {
           for(let obj in data.data){
             if(data.data[obj].email === this.user.email){
               localStorage.setItem("userLogged",data.data[obj].first_name);
+              this.validationMessage = true;
+              window.location.reload();
+              this.validationMessage = true;
             }
           }
         },

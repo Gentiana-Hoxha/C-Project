@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     BookCardComponent,
     BookCardFormComponent,
     BookCardFormWizardComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

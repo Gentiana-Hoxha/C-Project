@@ -1,11 +1,11 @@
 <!--https://stackoverflow.com/questions/53567993/angular-get-request-from-user-input/53568698-->
-<div *ngIf="!userLogged">
+<div >
     <div class="login-form">
         <input type="email" (keyup)="getEmail($event)">
         <input type="password" (keyup)="getPassword($event)">
         <button class="login-form-button" (click)="login();">Login</button>
     
-        <div *ngIf="!validationMessage">The email and password are incorrect!</div>
-        <div *ngIf="validationMessage">You are logged in!</div>
+        <div *ngIf="!userLogged">You are Logged out!</div>
+        <div *ngIf="userLogged">You are logged in!</div>
     </div>
 </div>

@@ -1,23 +1,8 @@
 .login-form{
     float: right;
     &-button{
-        font-size: 16px;
-        font-weight: 500;
-        fill: #6C757D;
-        color: #6C757D;
-        background-color: #FFFFFF;
-        border-style: solid;
-        border-width: 1px 1px 1px 1px;
-        border-color: #F6F6F6;
-        border-radius: 5px 5px 5px 5px;
-        box-shadow: -1px 7px 18px 0px rgb(159 212 251 / 15%);
-        transition: all .3s;
-        padding: 8px 30px;
+        background: floralwhite;
         cursor: pointer;
-        &:hover{
-            color: #FFFFFF;
-            background-color: #008CF4;
-        }
     }
 }
     
