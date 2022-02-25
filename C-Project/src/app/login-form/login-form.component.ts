@@ -34,8 +34,6 @@ export class LoginFormComponent implements OnInit {
           this.token = data.token;
           this.validationMessage = true;
           this.saveUser();
-          window.location.reload();
-
       },
       error: error => { 
           this.errorMessage = error.message;

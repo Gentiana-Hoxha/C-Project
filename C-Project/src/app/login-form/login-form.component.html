@@ -5,6 +5,7 @@
         <input type="password" (keyup)="getPassword($event)">
         <button class="login-form-button" (click)="login();">Login</button>
     
-        <div *ngIf="display()">The email and password are incorrect!</div>
+        <div *ngIf="!validationMessage">The email and password are incorrect!</div>
+        <div *ngIf="validationMessage">You are logged in!</div>
     </div>
 </div>

@@ -13,6 +13,7 @@ import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-f
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
