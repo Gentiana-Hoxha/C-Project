@@ -12,6 +12,7 @@ import { BookCardFormComponent } from './book-card-form/book-card-form.component
 import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-form-wizard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DatePipe } from '@angular/common';
     SearchBarComponent,
     BookCardComponent,
     BookCardFormComponent,
-    BookCardFormWizardComponent
+    BookCardFormWizardComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
