@@ -1,81 +1,84 @@
-<form  (ngSubmit)="onSubmit()" #f="ngForm" class="book-card-form" style="border: 1px solid;margin: 0 0 10px 0;padding: 20px;">
+<form [formGroup]="bookFormWizard" (ngSubmit)="onSubmit()" class="book-card-form" style="border: 1px solid;margin: 0 0 10px 0;padding: 20px;">
     <h3>Create/Edit this book with Wizard</h3>
-    <div #mainData="ngModelGroup" ngModelGroup="mainData" class="book-card-form--main-info">
+    <div formGroupName="mainData" class="book-card-form--main-info">
 
         <h4>Please write the Title and Author:</h4>
 
         <p  class="book-card-form--main-info-heading">Title of the book:</p>
         <input 
+            formControlName="bookTitle"
             type="text" 
             id="bookTitle" 
-            class="form-control" 
-            ngModel
-            #bookTitle="ngModel"   
+            class="form-control"
             name="bookTitle">
             
         <p  class="book-card--main-info-author">Author of the book:</p>
         <input 
+            formControlName="bookAuthor"
             type="text"  
             id="bookAuthor" 
             class="form-control" 
-            ngModel 
-            #bookAthor="ngModel" 
             name="bookAuthor">
-            <p *ngIf="bookTitle.value&&bookAthor.value">All inputs in this section have been given!</p>
     </div>
-    <div #secondaryData="ngModelGroup" ngModelGroup="secondaryData" class="book-card-form--secondary-info">
+    <div formGroupName="secondaryData" class="book-card-form--secondary-info">
 
         <h4>Please write the Synposis, Published date and Genre:</h4>
 
         <p  class="book-card-form--secondary-info-synopsis">Synopsis:</p>
         <textarea 
+            formControlName="bookSynopsis"
             type="text" 
             rows="4" 
             id="bookSynopsis" 
             class="form-control" 
-            ngModel 
-            #bookSynopsis="ngModel" 
             name="bookSynopsis">
         </textarea>
 
         <p  class="book-card-form--secondary-info-published-date">Published date:</p>
         <input 
+            formControlName="bookPublishedDate"
             type="date"  
             id="bookPublishedDate" 
             class="form-control" 
-            ngModel 
-            #bookPublishedDate="ngModel" 
             name="bookPublishedDate">
 
         <p  class="book-card-form--secondary-info-genre">Genre</p>
         <select 
+            formControlName="bookGenre"
             id="bookGenre" 
             class="form-control" 
-            ngModel 
-            #bookGenre="ngModel" 
             name="bookGenre">
                 <option value="Action">Action</option>
                 <option value="Romance">Romance</option>
                 <option value="Fiction">Fiction</option>
         </select>
-        <p *ngIf="bookGenre.touched && bookSynopsis.touched && bookPublishedDate.touched">All input in this section have been touched</p>
         <select 
+            formControlName="bookStatus"
             id="bookStatus"
-            ngModel 
-            #bookStatus="ngModel" 
             name="bookStatus">
-                <option value="Finished"
-                    [selected]="bookTitle.value && bookAthor.value&&bookGenre.value && bookSynopsis.value && bookPublishedDate.value"
+                <option 
+                value="Finished"
+                [selected]="bookFormWizard.get('mainData')?.valid&&bookFormWizard.get('secondaryData.bookSynopsis')?.value&&bookFormWizard.get('secondaryData.bookPublishedDate')?.value&&bookFormWizard.get('secondaryData.bookGenre')?.value"
                 >Finished</option>
 
                 <option value="Progress"
-                    [selected]="bookTitle.value||bookAthor.value||bookGenre.value || bookSynopsis.value || bookPublishedDate.value"
+                [selected]="!(bookFormWizard.get('mainData')?.valid&&bookFormWizard.get('secondaryData.bookSynopsis')?.value&&bookFormWizard.get('secondaryData.bookPublishedDate')?.value&&bookFormWizard.get('secondaryData.bookGenre')?.value)"
                 >Progress</option>
         </select>
     </div>
     <div class="book-card-form-button-section">
         <h4>The book is ready!</h4>
-        <button class="btn btn-submit" [disabled]="!f.dirty" type="submit">All done!</button>
+        
+        <button 
+            class="btn btn-submit" 
+            [disabled]="!(bookFormWizard.get('mainData')?.valid &&bookFormWizard.get('secondaryData')?.valid)" 
+            type="submit">
+            All done!
+        </button>
+
         <button class="btn btn-cancel" type="">Cancel</button>
     </div>
 </form>
+<!-- <p *ngIf="bookFormWizard.get('bookTitle')?.valid&&bookFormWizard.get('bookAuthor')?.valid">All inputs in this section have been given!</p> -->
+<!-- [selected]="bookTitle.value && bookAthor.value&&bookGenre.value && bookSynopsis.value && bookPublishedDate.value"
+[selected]="bookTitle.value||bookAthor.value||bookGenre.value || bookSynopsis.value || bookPublishedDate.value"-->

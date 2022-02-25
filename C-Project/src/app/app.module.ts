@@ -10,7 +10,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookCardFormComponent } from './book-card-form/book-card-form.component';
 import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-form-wizard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 
@@ -28,7 +28,8 @@ import { DatePipe } from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
