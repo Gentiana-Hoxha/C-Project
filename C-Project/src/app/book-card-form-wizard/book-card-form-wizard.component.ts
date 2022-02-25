@@ -11,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class BookCardFormWizardComponent implements OnInit {
   bookFormWizard!: FormGroup;
 
-  bookGenre = ["Action", "Romance"];
+  bookGenres = ["Action", "Romance"];
 
   constructor() { }
 

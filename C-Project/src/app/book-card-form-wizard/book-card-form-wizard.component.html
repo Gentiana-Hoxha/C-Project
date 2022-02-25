@@ -43,15 +43,16 @@
             name="bookPublishedDate">
 
         <p  class="book-card-form--secondary-info-genre">Genre</p>
-        <select 
-            formControlName="bookGenre"
-            id="bookGenre" 
-            class="form-control" 
-            name="bookGenre">
-                <option value="Action">Action</option>
-                <option value="Romance">Romance</option>
-                <option value="Fiction">Fiction</option>
-        </select>
+        <div *ngFor="let genre of bookGenres">
+            <label>
+                <input 
+                class="form-control"
+                type="radio"
+                name="bookGenre"
+                formControlName="bookGenre"
+                [value]="genre">{{genre}}
+            </label>
+    </div>
         <select 
             formControlName="bookStatus"
             id="bookStatus"
