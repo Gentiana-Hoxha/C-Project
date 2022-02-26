@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -13,31 +14,31 @@ export class BookCardFormComponent implements OnInit {
 
   bookGenres = ["Action", "Romance"];
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
   ngOnInit(): void {
     this.bookFormEditor = new FormGroup({
-      "mainData": new FormGroup({
-        'bookAuthor': new FormControl('', [Validators.required, Validators.maxLength(50)]),
-        'bookTitle': new FormControl('',Validators.required),
+      "mainDataE": new FormGroup({
+        'bookAuthorE': new FormControl('', [Validators.required, Validators.maxLength(50)]),
+        'bookTitleE': new FormControl('',Validators.required),
       }),
-      "secondaryData": new FormGroup({
-        'bookGenre': new FormControl('Action'),
-        'bookPublishedDate': new FormControl(''),
-        'bookStatus': new FormControl(''),
-        'bookSynopsis': new FormControl('')
+      "secondaryDataE": new FormGroup({
+        'bookGenreE': new FormControl('Action'),
+        'bookPublishedDateE': new FormControl(''),
+        'bookStatusE': new FormControl(''),
+        'bookSynopsisE': new FormControl('')
       })
     });
 
-    this.bookFormEditor.valueChanges.subscribe(value =>{
-      console.log(value)
-    })
+    // this.bookFormEditor.valueChanges.subscribe(value =>{
+    //   console.log(value)
+    // })
   }
 
   
 
 
   onSubmit(){
-    console.log(this.bookFormEditor)
+    // console.log(this.bookFormEditor)
   }
 }

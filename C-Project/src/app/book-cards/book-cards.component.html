@@ -1,0 +1,17 @@
+<div class="book-card" *ngFor="let book of books">
+    <div class="book-card-color"><span class="book-card--genre">{{book.secondaryData.bookGenre}}</span></div>
+    <div class="book-card--main-info">
+        <h3  class="book-card--main-info-heading">{{book.mainData.bookTitle}}</h3>
+        <h4  class="book-card--main-info-author">{{book.mainData.bookAuthor}}</h4>
+    </div>
+    <div class="book-card--secondary-info">
+        <p  class="book-card--secondary-info-synopsis">{{book.secondaryData.bookSynopsis}}</p>
+        <p  class="book-card--secondary-info-published-date">{{book.secondaryData.bookPublishedDate}}</p>
+    </div>
+    <div class="book-card-button-section">
+        <div class="book-card-button-section--popup">
+            <button>Edit</button>
+            <button>Delete</button>
+        </div>
+    </div>
+</div>
