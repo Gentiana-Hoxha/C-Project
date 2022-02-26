@@ -21,12 +21,9 @@ export class BookCardFormWizardComponent implements OnInit {
 
 
   onEditBook(bookData: any){
-    
   }
 
-
   ngOnInit(): void {
-
     this.bookFormWizard = new FormGroup({
       "mainData": new FormGroup({
         'bookTitle': new FormControl('',Validators.required),
@@ -35,7 +32,7 @@ export class BookCardFormWizardComponent implements OnInit {
       "secondaryData": new FormGroup({
         'bookGenre': new FormControl('Action'),
         'bookPublishedDate': new FormControl(''),
-        'bookStatus': new FormControl(''),
+        'bookStatus': new FormControl('Progress'),
         'bookSynopsis': new FormControl('')
       })
     });
@@ -45,6 +42,6 @@ export class BookCardFormWizardComponent implements OnInit {
     // });
   }
   onSubmit(){
-    this.bookService.onCreateBooks(this.bookFormWizard.value);
+    this.bookService.onCreateBook(this.bookFormWizard.value);
   }
 }

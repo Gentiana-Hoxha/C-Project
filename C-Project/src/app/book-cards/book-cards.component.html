@@ -10,7 +10,7 @@
     </div>
     <div class="book-card-button-section">
         <div class="book-card-button-section--popup">
-            <button>Edit</button>
+            <button (click)="onEdit(book.id, book.secondaryData.bookStatus)">Edit</button>
             <button (click)="onDelete(book.id)">Delete</button>
         </div>
     </div>
