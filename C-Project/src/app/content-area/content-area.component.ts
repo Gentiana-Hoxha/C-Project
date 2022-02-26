@@ -19,7 +19,7 @@ export class ContentAreaComponent implements OnInit {
   }
 
   getBooks(){
-    this.BookCards = this.bookService.GetBooks();
+    this.BookCards = this.bookService.onGetBooks();
     console.log("BookCards", this.BookCards)
   }
 }

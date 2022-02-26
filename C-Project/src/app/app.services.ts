@@ -10,14 +10,26 @@ export class BookService{
     BookCards : any = [];
     errorMessage: any;
 
-    CreateBooks(bookData : Object){
+    onCreateBooks(bookData : Object){
         this.http.post('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json'
         , bookData).subscribe(data => {
           console.table(data)
         })
     }
+    onDeleteBook(bookId : String){
+      this.http.delete('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json',{'body':bookId})
+        .subscribe(
+          {next: data => {
+            console.log('The path is valid and here are the data :', data);
+          },
+          error: error => { 
+              this.errorMessage = error.message;
+              console.error('The path is invalid!', error);
+          }}
+        );
+    }
 
-    GetBooks(){
+    onGetBooks(){
         this.http.get<{ [k: string] : Book}>('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json')
         .pipe(map(responseData=> {
           console.log("responseData", responseData)

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BookService } from '../app.services';
 
 @Component({
   selector: 'app-book-cards',
@@ -8,7 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BookCardsComponent implements OnInit {
   @Input() books : any;
 
-  constructor() { }
+  constructor(private bookServices : BookService) { }
+
+  onDelete(id:string){
+    this.bookServices.onDeleteBook(id);
+  }
 
   ngOnInit(): void {
     

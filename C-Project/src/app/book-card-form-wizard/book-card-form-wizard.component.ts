@@ -20,7 +20,6 @@ export class BookCardFormWizardComponent implements OnInit {
 
 
 
-
   onEditBook(bookData: any){
     
   }
@@ -46,6 +45,6 @@ export class BookCardFormWizardComponent implements OnInit {
     // });
   }
   onSubmit(){
-    this.bookService.CreateBooks(this.bookFormWizard.value);
+    this.bookService.onCreateBooks(this.bookFormWizard.value);
   }
 }
