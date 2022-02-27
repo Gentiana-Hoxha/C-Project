@@ -53,19 +53,6 @@
                 [value]="genre">{{genre}}
             </label>
     </div>
-        <select 
-            formControlName="bookStatus"
-            id="bookStatus"
-            name="bookStatus">
-                <option 
-                value="Finished"
-                [selected]="bookFormWizard.get('mainData')?.valid&&bookFormWizard.get('secondaryData.bookSynopsis')?.value&&bookFormWizard.get('secondaryData.bookPublishedDate')?.value&&bookFormWizard.get('secondaryData.bookGenre')?.value"
-                >Finished</option>
-
-                <option value="Progress"
-                [selected]="!(bookFormWizard.get('mainData')?.valid&&bookFormWizard.get('secondaryData.bookSynopsis')?.value&&bookFormWizard.get('secondaryData.bookPublishedDate')?.value&&bookFormWizard.get('secondaryData.bookGenre')?.value)"
-                >Progress</option>
-        </select>
     </div>
     <div class="book-card-form-button-section">
         <h4>The book is ready!</h4>

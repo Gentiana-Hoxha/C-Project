@@ -5,7 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './content-area.component.html',
   styleUrls: ['./content-area.component.scss']
 })
+
 export class ContentAreaComponent implements OnInit {
+
+  
 
   constructor() { }
 

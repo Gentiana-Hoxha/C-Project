@@ -7,7 +7,7 @@ import { NavigationComponent } from './navigation-panel/navigation.component';
 import { ContentAreaComponent } from './content-area/content-area.component';
 import { ContentAreaHeaderComponent } from './content-area-header/content-area-header.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { BookCardComponent } from './book-card/book-card.component';
+import { BookCardsComponent } from './book-cards/book-cards.component';
 import { BookCardFormComponent } from './book-card-form/book-card-form.component';
 import { BookCardFormWizardComponent } from './book-card-form-wizard/book-card-form-wizard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,8 +15,16 @@ import { DatePipe } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+import { BooksContentAreaComponent } from './books-content-area/books-content-area.component';
 
-
+const appRoutes: Routes = [
+  {path: '', component: BooksContentAreaComponent },
+  {path: 'login', component: LoginFormComponent},
+  {path: 'create-book', component: BookCardFormWizardComponent},
+  {path: 'edit-book',component: BookCardFormComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,17 +33,20 @@ import { LogoutComponent } from './logout/logout.component';
     ContentAreaComponent,
     ContentAreaHeaderComponent,
     SearchBarComponent,
-    BookCardComponent,
+    BookCardsComponent,
     BookCardFormComponent,
     BookCardFormWizardComponent,
     LoginFormComponent,
-    LogoutComponent
+    LogoutComponent,
+    BooksContentAreaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -9,7 +9,6 @@ import { User } from './user.interface';
 })
 export class LoginFormComponent implements OnInit {
   errorMessage!:String;
-  validationMessage!:boolean;
   token!:any;
   user:User = {email: '', password: ''};
 
@@ -37,7 +36,6 @@ export class LoginFormComponent implements OnInit {
       error: error => { 
           this.errorMessage = error.message;
           console.error('Could\'t login with that email and password', error);
-          this.validationMessage = false;
       }
     })
   }
@@ -49,9 +47,7 @@ export class LoginFormComponent implements OnInit {
           for(let obj in data.data){
             if(data.data[obj].email === this.user.email){
               localStorage.setItem("userLogged",data.data[obj].first_name);
-              this.validationMessage = true;
               window.location.reload();
-              this.validationMessage = true;
             }
           }
         },
