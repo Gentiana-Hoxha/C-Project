@@ -10,15 +10,21 @@ import { BookService } from '../app.services';
 
 export class BooksContentAreaComponent implements OnInit {
   BookCards : any = [];
-  
+  loading : boolean = true;
 
   constructor(private http: HttpClient, private bookService: BookService) { }
 
   ngOnInit(): void {
-    this.getBooks()
-  }
+    this.bookService.onGetBooks().then((res : any)=>{
+      let k: keyof typeof res;
+        for (k in res){
+          if(res.hasOwnProperty(k)){
+            this.BookCards.push({...res[k], id: k})
+          }
+        }
+      this.loading = false;
+      console.log("test res", this.BookCards);
+    });
 
-  getBooks(){
-    this.BookCards = this.bookService.onGetBooks();
   }
 }

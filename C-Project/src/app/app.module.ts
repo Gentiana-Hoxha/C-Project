@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   {path: '', component: BooksContentAreaComponent },
   {path: 'login', component: LoginFormComponent},
   {path: 'create-book', component: BookCardFormWizardComponent},
-  {path: 'edit-book',component: BookCardFormComponent}
+  {path: 'edit-book/:id',component: BookCardFormComponent,}
 ]
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     BookCardFormWizardComponent,
     LoginFormComponent,
     LogoutComponent,
-    BooksContentAreaComponent
+    BooksContentAreaComponent,
   ],
   imports: [
     BrowserModule,

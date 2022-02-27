@@ -10,8 +10,10 @@
     </div>
     <div class="book-card-button-section">
         <div class="book-card-button-section--popup">
-            <button (click)="onEdit(book.id, book.secondaryData.bookStatus)">Edit</button>
+            <button><a href="/edit-book/{{book.id}}">Edit</a></button>
             <button (click)="onDelete(book.id)">Delete</button>
         </div>
     </div>
 </div>
+
+<!-- https://stackoverflow.com/questions/44864303/send-data-through-routing-paths-in-angular -->
