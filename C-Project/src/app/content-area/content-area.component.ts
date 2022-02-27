@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../app.services';
 
 @Component({
   selector: 'app-content-area',
@@ -9,16 +7,12 @@ import { BookService } from '../app.services';
 })
 
 export class ContentAreaComponent implements OnInit {
-  BookCards : any = [];
+
   
 
-  constructor(private http: HttpClient, private bookService: BookService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getBooks()
   }
 
-  getBooks(){
-    this.BookCards = this.bookService.onGetBooks();
-  }
 }

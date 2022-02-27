@@ -15,8 +15,16 @@ import { DatePipe } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+import { BooksContentAreaComponent } from './books-content-area/books-content-area.component';
 
-
+const appRoutes: Routes = [
+  {path: '', component: BooksContentAreaComponent },
+  {path: 'login', component: LoginFormComponent},
+  {path: 'create-book', component: BookCardFormWizardComponent},
+  {path: 'edit-book',component: BookCardFormComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,13 +37,16 @@ import { LogoutComponent } from './logout/logout.component';
     BookCardFormComponent,
     BookCardFormWizardComponent,
     LoginFormComponent,
-    LogoutComponent
+    LogoutComponent,
+    BooksContentAreaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
