@@ -82,6 +82,7 @@
                 name="bookDeletable"
                 formControlName="bookDeletable">
             </label>
+        <button (click)="handleStep(2)">BACK</button>
         <button 
         class="btn btn-submit" 
         [disabled]="!(bookFormWizard.get('mainData')?.valid &&bookFormWizard.get('secondaryData')?.valid)" 
