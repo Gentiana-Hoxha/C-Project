@@ -23,7 +23,6 @@ export class BooksContentAreaComponent implements OnInit {
           }
         }
       this.loading = false;
-      console.log("test res", this.BookCards);
     });
 
   }

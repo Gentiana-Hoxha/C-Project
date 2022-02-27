@@ -15,9 +15,10 @@ export class BookService{
     constructor(private http: HttpClient, private router : Router, private route : ActivatedRoute) { }
     BookCards : any = [];
     errorMessage: any;
+    url = "https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books";
 
     onCreateBook(bookData : Object){
-        this.http.post('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json'
+        this.http.post(this.url+'.json'
         , bookData).subscribe(
           {next: data => {
             this.router.navigate(['']);
@@ -30,7 +31,7 @@ export class BookService{
     }
 
     onDeleteBook(bookId : String){
-      this.http.delete('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books/'+bookId+'.json')
+      this.http.delete(this.url+'/'+bookId+'.json')
         .subscribe(
           {next: data => {
             // this.router.navigate([''],{relativeTo:this.route});
@@ -44,7 +45,7 @@ export class BookService{
     }
 
     onGetBooks(){
-      return this.http.get<{ [k: string] : Book}>('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json')
+      return this.http.get<{ [k: string] : Book}>(this.url+'.json')
       .toPromise()
         // this.http.get<{ [k: string] : Book}>('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json')
         // .pipe(map(responseData=> {
@@ -70,10 +71,10 @@ export class BookService{
 
 
     onEditBook(bookData : any, bookID : string){
-      this.http.put('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books/'+bookID+'.json'
+      this.http.put(this.url+'/'+bookID+'.json'
         , bookData).subscribe(
           {next: data => {
-            this.router.navigate(['../../']);
+            this.router.navigate(['']);
           },
           error: error => { 
               this.errorMessage = error.message;
@@ -83,7 +84,7 @@ export class BookService{
     }
 
     onGetBook(bookId : String){
-      return this.http.get<BookModel>('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books/'+bookId+'.json')
+      return this.http.get<BookModel>(this.url+'/'+bookId+'.json')
       .toPromise();
     }
 }

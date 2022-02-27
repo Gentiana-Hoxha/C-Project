@@ -21,7 +21,7 @@ export class BookCardFormComponent implements OnInit {
 
   bookGenres = ["Action", "Romance"];
 
-  constructor(private http : HttpClient,  private bookService: BookService, private route : ActivatedRoute) { }
+  constructor( private bookService: BookService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.bookService.onGetBook(this.route.snapshot.params['id']).then(res=>{
@@ -36,8 +36,12 @@ export class BookCardFormComponent implements OnInit {
           'bookGenre': new FormControl(this.book.secondaryData.bookGenre),
           'bookPublishedDate': new FormControl(this.book.secondaryData.bookPublishedDate),
           'bookStatus': new FormControl(this.book.secondaryData.bookStatus),
-          'bookSynopsis': new FormControl(this.book.secondaryData.bookSynopsis)
-        })
+          'bookSynopsis': new FormControl(this.book.secondaryData.bookSynopsis),
+          'bookImageURL': new FormControl(this.book.secondaryData.bookImageURL),
+
+        }),
+        "bookEditable": new FormControl(this.book.bookEditable),
+        "bookDeletable": new FormControl(this.book.bookDeletable)
       });
       this.loading = false;
     });

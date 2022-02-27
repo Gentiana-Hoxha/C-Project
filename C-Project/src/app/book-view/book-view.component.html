@@ -1,0 +1,10 @@
+<button><a href="../">Go back</a></button>
+<div style="height: 100px;width: 100%;overflow: hidden;">
+    <div style="background:url({{book.secondaryData.bookImageURL}});filter: blur(8px);transform: scale(1.5);height: 100%;width: 100%;"></div>
+</div>
+<div>
+    <img style="height: 300px;float:left;" src="{{book.secondaryData.bookImageURL}}" alt="book-image">
+    <h1>{{book.mainData.bookTitle}} </h1>
+    <h2>{{book.mainData.bookAuthor}}</h2>
+    <p style="max-width: 600px;">{{book.secondaryData.bookSynopsis}} </p>
+</div>
