@@ -1,5 +1,5 @@
 <div class="book-card" *ngFor="let book of books">
-    <div class="book-card-color"><span class="book-card--genre">{{book.secondaryData.bookGenre}}</span></div>
+    <div style="background: url({{book.secondaryData.bookImageURL}});" class="book-card-color"><span class="book-card--genre">{{book.secondaryData.bookGenre}}</span></div>
     <div class="book-card--main-info">
         <h3  class="book-card--main-info-heading">{{book.mainData.bookTitle}}</h3>
         <h4  class="book-card--main-info-author">{{book.mainData.bookAuthor}}</h4>
@@ -10,8 +10,12 @@
     </div>
     <div class="book-card-button-section">
         <div class="book-card-button-section--popup">
-            <button (click)="onEdit(book.id, book.secondaryData.bookStatus)">Edit</button>
-            <button (click)="onDelete(book.id)">Delete</button>
+            <button *ngIf="book.bookEditable=='Editable'"><a href="/view-book/{{book.id}}">View</a></button>
+            <button *ngIf="book.bookEditable=='Editable'"><a href="/edit-book/{{book.id}}">Edit</a></button>
+            <button *ngIf="book.bookDeletable=='Deletable'" (click)="onDelete(book.id)">Delete</button>
+           
         </div>
     </div>
 </div>
+
+<!-- https://stackoverflow.com/questions/44864303/send-data-through-routing-paths-in-angular -->

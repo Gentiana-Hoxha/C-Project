@@ -13,12 +13,14 @@ import { BookService } from '../app.services';
 
 export class BookCardFormWizardComponent implements OnInit {
   bookFormWizard!: FormGroup;
-
+  stepIndex: number = 1;
   bookGenres = ["Action", "Romance"];
 
   constructor(private http: HttpClient,  private bookService: BookService) { }
 
-
+  handleStep(step: number){
+    this.stepIndex = step;
+  }
 
   onEditBook(bookData: any){
   }
@@ -33,8 +35,11 @@ export class BookCardFormWizardComponent implements OnInit {
         'bookGenre': new FormControl('Action'),
         'bookPublishedDate': new FormControl(''),
         'bookStatus': new FormControl('Progress'),
-        'bookSynopsis': new FormControl('')
-      })
+        'bookSynopsis': new FormControl(''),
+        'bookImageURL': new FormControl(''),
+      }),
+      "bookEditable": new FormControl(''),
+      "bookDeletable": new FormControl('')
     });
 
     // this.bookFormWizard.valueChanges.subscribe(value=>{

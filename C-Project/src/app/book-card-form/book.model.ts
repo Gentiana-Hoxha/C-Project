@@ -1,5 +1,4 @@
-export interface Book{
-    id: string,
+export interface BookModel{
     mainData :{
         bookTitle: string,
         bookAuthor : string

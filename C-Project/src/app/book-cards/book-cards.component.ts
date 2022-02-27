@@ -17,10 +17,7 @@ export class BookCardsComponent implements OnInit {
   onDelete(id:string){
     this.bookServices.onDeleteBook(id);
   }
-  onEdit(id:String , status:String){
-  }
 
   ngOnInit(): void {
-    
   }
 }

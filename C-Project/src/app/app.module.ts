@@ -18,12 +18,14 @@ import { LogoutComponent } from './logout/logout.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { BooksContentAreaComponent } from './books-content-area/books-content-area.component';
+import { BookViewComponent } from './book-view/book-view.component';
 
 const appRoutes: Routes = [
   {path: '', component: BooksContentAreaComponent },
   {path: 'login', component: LoginFormComponent},
   {path: 'create-book', component: BookCardFormWizardComponent},
-  {path: 'edit-book',component: BookCardFormComponent}
+  {path: 'edit-book/:id',component: BookCardFormComponent},
+  {path: 'view-book/:id',component: BookViewComponent}
 ]
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     BookCardFormWizardComponent,
     LoginFormComponent,
     LogoutComponent,
-    BooksContentAreaComponent
+    BooksContentAreaComponent,
+    BookViewComponent,
   ],
   imports: [
     BrowserModule,
