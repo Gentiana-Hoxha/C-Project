@@ -12,8 +12,12 @@
         <div class="book-card-button-section--popup">
             <button *ngIf="book.bookEditable=='Editable'"><a href="/view-book/{{book.id}}">View</a></button>
             <button *ngIf="book.bookEditable=='Editable'"><a href="/edit-book/{{book.id}}">Edit</a></button>
-            <button *ngIf="book.bookDeletable=='Deletable'" (click)="onDelete(book.id)">Delete</button>
-           
+            <button (click)="deletePopup()" *ngIf="book.bookDeletable=='Deletable'">Delete</button>
+            <div *ngIf="wantToDelete">
+                <p>Are you sure you want to delete?</p>
+                <button  (click)="onDelete(book.id)">Delete</button>
+                <button  (click)="resetDelete()">Cancel</button>
+            </div>
         </div>
     </div>
 </div>

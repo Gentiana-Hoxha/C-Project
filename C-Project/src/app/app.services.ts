@@ -44,7 +44,7 @@ export class BookService{
         );
     }
 
-    onGetBooks(){
+    onGetBooks(search?: string){
       return this.http.get<{ [k: string] : Book}>(this.url+'.json')
       .toPromise()
         // this.http.get<{ [k: string] : Book}>('https://c-project-549f2-default-rtdb.europe-west1.firebasedatabase.app/books.json')
