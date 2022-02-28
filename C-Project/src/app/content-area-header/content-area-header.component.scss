@@ -2,7 +2,10 @@
     height: fit-content;
     display: inline-block;
     border-bottom: 2px solid;
+    // position: fixed;
+    z-index: 1;
     width: -webkit-fill-available;
+    background: burlywood;
     &-title{
         float: left;
     }
