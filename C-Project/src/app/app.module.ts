@@ -22,7 +22,7 @@ import { BookViewComponent } from './book-view/book-view.component';
 
 const appRoutes: Routes = [
   {path: '', component: BooksContentAreaComponent },
-  {path: ':search', component: BooksContentAreaComponent },
+  // {path: '/:search', component: BooksContentAreaComponent },
   {path: 'login', component: LoginFormComponent},
   {path: 'create-book', component: BookCardFormWizardComponent},
   {path: 'edit-book/:id',component: BookCardFormComponent},
