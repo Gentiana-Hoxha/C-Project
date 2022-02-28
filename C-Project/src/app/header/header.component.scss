@@ -4,13 +4,26 @@
     width: 100%;
     position: fixed;
     border-bottom: 2px solid;
-    background-color: blueviolet;
-    z-index: 1;
+    background-color: rgb(228, 202, 251);
+    z-index: 4;
     &-logo, &-user{
         padding: 10px;
     }
     &-logo{
         float: left;
+    }
+    img{
+        float: left;
+        max-width: 64px;
+        margin: auto;
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        margin-left: 36px;
     }
     &-user{
         float: right;
