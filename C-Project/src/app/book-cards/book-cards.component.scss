@@ -1,19 +1,26 @@
+
 .book-card{
     min-height: 296px;
     background: #faebd7;
     border: 1px solid;
     margin: 0 0 10px 0;
     position: relative;
-    width: 30%;
+    width: 46%;
     float: left;
     margin-right: 2vw;
     margin-bottom: 2vw;
+    transition: transform .2s;
     // &:nth-child(3n){
     //     margin-right: 0;
     // }
-    &-color{
+    &:hover{
+        transform: scale(1.03);
+        z-index: 2;
+    }
+    
+    &-image{
         height: 125px;
-        background-color: yellowgreen;
+        
         border: 1px solid;
         position: relative;
         span{
@@ -29,6 +36,7 @@
             top: 10px;
             border: 1px solid black;
         }
+        
     }
     &--main-info{
         position: absolute;
@@ -70,9 +78,14 @@
         right: 4px;
         bottom: 4px;
         cursor: pointer;
-        
+        &:after {
+            content: '\2807';
+            font-size: 23px;
+            right: 10%;
+            position: absolute;
+        }
         &--popup{
-            
+           
             padding: 10px;
             background: rgb(235, 232, 65);
             border: 1px solid black;
@@ -80,7 +93,7 @@
             position: absolute;
             left: 16px;
             bottom: -17px;
-            z-index: 2;
+            z-index: 3;
             display: none;
             button{
                 cursor: pointer;
@@ -97,6 +110,12 @@
                 display: block;
             }
         }
+        
+    }
+}
+@media only screen and (max-width:768px){
+    .book-card{
+        width: 97%;
         
     }
 }

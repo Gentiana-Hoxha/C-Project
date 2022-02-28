@@ -1,5 +1,5 @@
 <div class="book-card" *ngFor="let book of books">
-    <div style="background: url({{book.secondaryData.bookImageURL}});" class="book-card-color"><span class="book-card--genre">{{book.secondaryData.bookGenre}}</span></div>
+    <div style="background: url({{book.secondaryData.bookImageURL}});" class="book-card-image"><span class="book-card--genre">{{book.secondaryData.bookGenre}}</span></div>
     <div class="book-card--main-info">
         <h3  class="book-card--main-info-heading">{{book.mainData.bookTitle}}</h3>
         <h4  class="book-card--main-info-author">{{book.mainData.bookAuthor}}</h4>

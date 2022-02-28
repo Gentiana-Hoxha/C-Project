@@ -1,0 +1,33 @@
+
+.book-view{
+    &--top{
+        height: 100px;
+        width: 100%;
+        overflow: hidden;
+    }
+    &--bottom{
+        padding: 36px;
+        max-width: 704px;
+        margin: auto;
+        img{
+            height: 300px;
+            float: left;
+            margin: 0px 36px 36px 0px;
+        }
+    }
+
+    .goBackButton{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 0px 16px;
+        z-index: 1;
+        a{
+            padding-bottom: 4px;
+        }
+        &::before{
+            content: '\2190';
+            font-size: 23px;
+        }
+    }
+}
